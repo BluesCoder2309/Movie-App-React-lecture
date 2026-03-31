@@ -9,16 +9,18 @@ class MovieCard extends React.Component {
       price: 199,
       rating: 8.9,
       stars: 0,
+      fav: false,
+      cart: false,
     };
     // this.addStars = this.addStars.bind(this);
   }
 
   //   instead of binding using this.addStars = this.addStars.bind(this); we can also use an arrow function instead of a regular function, so that the value of this is not lost while passing its reference
 
-//   using first form of setState
+  //   using first form of setState
   addStars = () => {
-    if(this.state.stars >= 5){
-        return;
+    if (this.state.stars >= 5) {
+      return;
     }
     this.setState((prevState) => {
       return {
@@ -26,17 +28,23 @@ class MovieCard extends React.Component {
       };
     });
   };
-  
+
   // using second form of setState
   removeStars = () => {
-    if(this.state.stars <= 0){
-        return;
+    if (this.state.stars <= 0) {
+      return;
     }
     this.setState({ stars: this.state.stars - 0.5 });
   };
+  toggleFav = () => {
+    this.setState({ fav: !this.state.fav });
+  };
+  toggleCart = ()=>{
+    this.setState({cart : !this.state.cart})
+  }
   render() {
     // access the object properties by structuring
-    const { title, plot, price, rating, stars } = this.state;
+    const { title, plot, price, rating, stars, fav, cart } = this.state;
     return (
       <div className="main">
         <div className="movie-card">
@@ -72,8 +80,21 @@ class MovieCard extends React.Component {
                 />
                 <span>{stars}</span>
               </div>
-              <button className="favourite-btn">Favourite</button>
-              <button className="cart-btn">Add to Cart</button>
+
+              {/* {fav ? (
+                <button className="unfavourite-btn" onClick = {this.toggleFav}>Un-favourite</button>
+              ) : (
+                <button className="favourite-btn" onClick = {this.toggleFav}>Favourite</button>
+              )} */}
+
+              <button
+                className={fav ? "unfavourite-btn" : "favourite-btn"}
+                onClick={this.toggleFav}
+              >
+                {fav ? "Unfavourite" : "Favourite"}
+              </button>
+
+              <button className={cart ? "cart-btn" : "removeCart-btn"} onClick={this.toggleCart}>{cart ? "Add to Cart" : "Remove from Cart"}</button>
             </div>
           </div>
         </div>
