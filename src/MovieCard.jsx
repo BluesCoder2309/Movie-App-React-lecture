@@ -1,19 +1,7 @@
 import React from "react";
 
 class MovieCard extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      title: "The Avengers!",
-      plot: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
-      price: 199,
-      rating: 8.9,
-      stars: 0,
-      fav: false,
-      cart: false,
-    };
-    // this.addStars = this.addStars.bind(this);
-  }
+ 
 
   //   instead of binding using this.addStars = this.addStars.bind(this); we can also use an arrow function instead of a regular function, so that the value of this is not lost while passing its reference
 
@@ -43,8 +31,8 @@ class MovieCard extends React.Component {
     this.setState({cart : !this.state.cart})
   }
   render() {
-    // access the object properties by structuring
-    const { title, plot, price, rating, stars, fav, cart } = this.state;
+    // access the object properties by destructuring
+    const { title, plot, price, rating, stars, fav, cart } = this.props.movies;
     return (
       <div className="main">
         <div className="movie-card">

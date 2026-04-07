@@ -1,11 +1,12 @@
-import MovieCard from "./MovieCard.jsx"
+
+import MovieList from "./MovieList.jsx"
 
 function App() {
  
   return (
     <>
      <h1>Movie App</h1>
-     <MovieCard />
+     <MovieList />
     </>
   )
 }
