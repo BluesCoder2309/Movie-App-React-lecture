@@ -64,6 +64,20 @@ class MovieList extends React.Component {
     movies[mid].stars -= 0.5;
     this.setState({ movies: movies });
   };
+
+  handleToggleFav = (movie) => {
+    const { movies } = this.state;
+    const mid = movies.indexOf(movie);
+    movies[mid].fav = !movies[mid].fav;
+    this.setState({ movies: movies });
+  };
+
+  handleToggleCart = (movie) => {
+    const { movies } = this.state;
+    const mid = movies.indexOf(movie);
+    movies[mid].cart = !movies[mid].cart;
+    this.setState({ movies: movies });
+  };
   render() {
     // const { title, plot, price, rating, stars, fav, cart, poster } = this.state.movies;
 
@@ -71,7 +85,14 @@ class MovieList extends React.Component {
     return (
       <>
         {movies.map((movie, i) => (
-          <MovieCard movies={movie} key={i} addStars={this.handleIncStar} removeStars={this.handleDecStar} />
+          <MovieCard
+            movies={movie}
+            key={i}
+            addStars={this.handleIncStar}
+            removeStars={this.handleDecStar}
+            toggleFav={this.handleToggleFav}
+            toggleCart={this.handleToggleCart}
+          />
         ))}
       </>
     );
