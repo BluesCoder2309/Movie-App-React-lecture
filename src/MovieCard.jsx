@@ -51,7 +51,9 @@ class MovieCard extends React.Component {
                   src="https://cdn-icons-png.flaticon.com/128/43/43625.png"
                   alt="minus-btn"
                   className="str-btn"
-                  onClick={this.removeStars}
+                  onClick={()=>{
+                    this.props.removeStars(this.props.movies)
+                  }}
                 />
                 <img
                   className="stars"
@@ -62,7 +64,9 @@ class MovieCard extends React.Component {
                   src="https://cdn-icons-png.flaticon.com/128/32/32563.png"
                   alt="plus-btn"
                   className="str-btn"
-                  onClick={this.addStars}
+                  onClick={() => {
+                    this.props.addStars(this.props.movies);
+                  }}
                 />
                 <span>{stars}</span>
               </div>
