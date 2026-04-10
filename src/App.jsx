@@ -1,11 +1,13 @@
 
 import MovieList from "./MovieList.jsx"
+import Navbar from "./Navbar.jsx"
 
 function App() {
  
   return (
     <>
-     <h1>Movie App</h1>
+
+     <Navbar />
      <MovieList />
 
     </>
