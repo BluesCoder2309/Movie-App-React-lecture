@@ -1,49 +1,57 @@
 import React, { Component } from "react";
+import styled from "styled-components";
+
+const Nav = styled.div`
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #4267b2;
+`;
+
+const Title = styled.div`
+  font-size: 3rem;
+  color: #fff;
+  font-weight: 600;
+  font-wamily: Montserrat, sans-serif;
+  text-transform: uppercase;
+  margin-left: 20px;
+`;
+
+const CartIconContainer = styled.div`
+  position: relative;
+  cursor: pointer;
+`;
+
+const CartIcon = styled.img`
+  height: 48px;
+  margin-right: 20px;
+`;
+
+const CartCount = styled.span`
+  background-color: orange;
+  border-radius: 50%;
+  padding: 4px 8px;
+  position: absolute;
+  right: 10px;
+  top: -5px;
+  font-size: 12px;
+`;
 class Navbar extends Component {
   render() {
     return (
-      <div style={styles.nav}>
-        <div style={styles.title}>Movie-App</div>
-        <div style={styles.cartIconContainer}>
-          <img
-            style={styles.cartIcon}
+      <Nav>
+        <Title>Movie-App</Title>
+        <CartIconContainer>
+          <CartIcon
             src="https://cdn-icons-png.flaticon.com/128/891/891462.png"
             alt="cart-icon"
           />
-          <span style={styles.cartCount}>3</span>
-        </div>
-      </div>
+          <CartCount>3</CartCount>
+        </CartIconContainer>
+      </Nav>
     );
   }
 }
-const styles = {
-  cartIcon: { height: 48, marginRight: 20 },
-  nav: {
-    height: 70,
-    background: "#4267b2",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    position: "relative",
-  },
-  title: {
-    fontSize: 30,
-    color: "#fff",
-    fontWeight: 600,
-    fontFamily: '"Montserrat", sans-serif',
-    textTransform: "uppercase",
-    marginLeft: 20,
-  },
-  cartIconContainer: { position: "relative", cursor: "pointer" },
-  cartCount: {
-    background: "orange",
-    borderRadius: "50%",
-    padding: "4px 8px",
-    position: "absolute",
-    right: 10,
-    top: -5,
-    fontSize: 12,
-  },
-};
 
 export default Navbar;
