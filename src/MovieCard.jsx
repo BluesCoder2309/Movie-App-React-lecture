@@ -1,17 +1,29 @@
 import React from "react";
+import styled from "styled-components";
+
+const MovCard = styled.div`
+  background: linear-gradient(170deg, #1bc059, #0d47a1);
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #242222; 
+  display: flex;
+  &:hover {
+    background: linear-gradient(170deg, #0d47a1, #1bc059);
+    cursor: pointer;
+  }
+`;
 
 class MovieCard extends React.Component {
   render() {
     // access the object properties by destructuring
-    const { title, plot, price, poster, rating, stars, fav, cart } = this.props.movies;
+    const { title, plot, price, poster, rating, stars, fav, cart } =
+      this.props.movies;
     return (
       <div className="main">
-        <div className="movie-card">
+        <MovCard className="movie-card" >
           <div className="left">
-            <img
-              alt="Poster"
-              src={poster}
-            />
+            <img alt="Poster" src={poster} />
           </div>
           <div className="right">
             <div className="title">{title}</div>
@@ -63,7 +75,7 @@ class MovieCard extends React.Component {
               </button>
             </div>
           </div>
-        </div>
+        </MovCard>
       </div>
     );
   }

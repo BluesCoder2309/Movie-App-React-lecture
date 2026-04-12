@@ -6,7 +6,10 @@ const Nav = styled.div`
   height: 70px;
   display: flex;
   justify-content: space-between;
-  background-color: #4267b2;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(170deg, #1bc059, #0d47a1);
+  
 `;
 
 const Title = styled.div`
@@ -16,6 +19,10 @@ const Title = styled.div`
   font-wamily: Montserrat, sans-serif;
   text-transform: uppercase;
   margin-left: 20px;
+  &:hover {
+    color: black;
+    cursor : pointer ;
+  }
 `;
 
 const CartIconContainer = styled.div`
@@ -26,16 +33,18 @@ const CartIconContainer = styled.div`
 const CartIcon = styled.img`
   height: 48px;
   margin-right: 20px;
+  margin-top: 10px;
 `;
 
 const CartCount = styled.span`
-  background-color: orange;
+  background-color: ${(props) => props.color};
   border-radius: 50%;
   padding: 4px 8px;
   position: absolute;
   right: 10px;
-  top: -5px;
+  top: 5px;
   font-size: 12px;
+  visibility: ${(props) => (props.show ? "visible" : "hidden")};
 `;
 class Navbar extends Component {
   render() {
@@ -47,7 +56,9 @@ class Navbar extends Component {
             src="https://cdn-icons-png.flaticon.com/128/891/891462.png"
             alt="cart-icon"
           />
-          <CartCount>3</CartCount>
+          <CartCount color="skyblue" show={true}>
+            3
+          </CartCount>
         </CartIconContainer>
       </Nav>
     );
