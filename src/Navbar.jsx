@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 const Nav = styled.div`
@@ -20,7 +19,7 @@ const Title = styled.div`
   margin-left: 20px;
   &:hover {
     color: black;
-    cursor : pointer ;
+    cursor: pointer;
   }
 `;
 
@@ -46,23 +45,22 @@ const CartCount = styled.span`
   visibility: ${(props) => (props.show ? "visible" : "hidden")};
 `;
 
-class Navbar extends React.Component {
-  render() {
-    return (
-      <Nav>
-        <Title>Movie-App</Title>
-        <CartIconContainer>
-          <CartIcon
-            src="https://cdn-icons-png.flaticon.com/128/891/891462.png"
-            alt="cart-icon"
-          />
-          <CartCount color="red" show={true}>
-            5
-          </CartCount>
-        </CartIconContainer>
-      </Nav>
-    );
-  }
+function Navbar(props) {
+  const { cartCount } = props;
+  return (
+    <Nav>
+      <Title>Movie-App</Title>
+      <CartIconContainer>
+        <CartIcon
+          src="https://cdn-icons-png.flaticon.com/128/891/891462.png"
+          alt="cart-icon"
+        />
+        <CartCount color="azure" show={true}>
+          {cartCount}
+        </CartCount>
+      </CartIconContainer>
+    </Nav>
+  );
 }
 
 export default Navbar;
